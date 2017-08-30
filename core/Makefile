@@ -1252,6 +1252,9 @@ define build-image-kernel-modules
 endef
 
 define build-recoveryramdisk
+  @echo "Generating Changelog"
+  $(hide) ./vendor/nitrogen/tools/changelog.sh
+  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(TARGET_PRODUCT)-Changelog.txt
   $(hide) mkdir -p $(TARGET_RECOVERY_OUT)
   $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/etc $(TARGET_RECOVERY_ROOT_OUT)/sdcard $(TARGET_RECOVERY_ROOT_OUT)/tmp
   @echo Copying baseline ramdisk...
