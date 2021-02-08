@@ -168,10 +168,10 @@ include $(BUILD_SYSTEM)/node_fns.mk
 include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
-# A AOSiP build needs only the AOSiP product makefiles.
-ifneq ($(AOSIP_BUILD),)
-  all_product_configs := $(shell find device -path "*/$(AOSIP_BUILD)/aosip.mk")
-  all_product_configs += $(wildcard vendor/aosip/build/target/product/aosip_$(AOSIP_BUILD).mk)
+# A ZERO build needs only the ZERO product makefiles.
+ifneq ($(ZERO_BUILD),)
+  all_product_configs := $(shell find device -path "*/$(ZERO_BUILD)/zero.mk")
+  all_product_configs += $(wildcard vendor/zero/build/target/product/zero_$(ZERO_BUILD).mk)
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
@@ -182,9 +182,9 @@ else
   # files in the tree.
   all_product_configs := $(get-all-product-makefiles)
   endif # TARGET_BUILD_APPS
-endif # AOSIP_BUILD
+endif # ZERO_BUILD
 
-ifeq ($(AOSIP_BUILD),)
+ifeq ($(ZERO_BUILD),)
 all_named_products :=
 
 # Find the product config makefile for the current product.

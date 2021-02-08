@@ -61,10 +61,10 @@ if [ "$TARGET_UNIFIED_DEVICE" == "" ] ; then
   fi
 fi
 if [ -n "$DEVICE_MAINTAINERS" ] ; then
-  echo "ro.aosip.maintainer=$DEVICE_MAINTAINERS"
+  echo "ro.zero.maintainer=$DEVICE_MAINTAINERS"
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
-echo "ro.aosip.device=$AOSIP_DEVICE"
+echo "ro.zero.device=$ZERO_DEVICE"
 
 echo "# end build properties"

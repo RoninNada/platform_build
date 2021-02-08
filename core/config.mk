@@ -192,7 +192,7 @@ $(call project-set-path-variant,recovery,RECOVERY_VARIANT,bootable/recovery)
 $(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/ril)
 
 -include vendor/extra/BoardConfigExtra.mk
--include vendor/aosip/config/BoardConfigAOSiP.mk
+-include vendor/zero/config/BoardConfigZERO.mk
 
 # The build system exposes several variables for where to find the kernel
 # headers:
@@ -585,7 +585,7 @@ JACK := $(HOST_OUT_EXECUTABLES)/jack
 ifneq ($(FLEX_EXEC),)
 LEX := $(FLEX_EXEC)
 else
-LEX := vendor/aosip/prebuilt/flex/flex-2.6.4
+LEX := vendor/zero/prebuilt/flex/flex-2.6.4
 endif
 # The default PKGDATADIR built in the prebuilt bison is a relative path
 # external/bison/data.
@@ -984,7 +984,7 @@ include $(BUILD_SYSTEM)/ninja_config.mk
 include $(BUILD_SYSTEM)/soong_config.mk
 endif
 
-ifneq ($(AOSIP_BUILD),)
+ifneq ($(ZERO_BUILD),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
 $(eval include device/aosip/sepolicy/common/sepolicy.mk)
@@ -996,10 +996,10 @@ $(eval include device/aosip/sepolicy/common/sepolicy.mk)
 -include $(TOPDIR)vendor/*/build/core/apicheck.mk
 
 # Rules for QCOM targets
--include $(TOPDIR)vendor/aosip/build/core/qcom_target.mk
+-include $(TOPDIR)vendor/zero/build/core/qcom_target.mk
 
 # Rules for MTK targets
--include $(TOPDIR)vendor/aosip/build/core/mtk_target.mk
+-include $(TOPDIR)vendor/zero/build/core/mtk_target.mk
 endif
 
 include $(BUILD_SYSTEM)/dumpvar.mk
