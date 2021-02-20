@@ -136,12 +136,12 @@ function check_product()
         return
     fi
     if (echo -n $1 | grep -q -e "^zero_") ; then
-        AOSIP_BUILD=$(echo -n $1 | sed -e 's/^zero_//g')
-        export BUILD_NUMBER=$( (date +%s%N ; echo $AOSIP_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10 )
+        ZERO_BUILD=$(echo -n $1 | sed -e 's/^zero_//g')
+        export BUILD_NUMBER=$( (date +%s%N ; echo $ZERO_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10 )
     else
-        AOSIP_BUILD=
+        ZERO_BUILD=
     fi
-    export AOSIP_BUILD
+    export ZERO_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \

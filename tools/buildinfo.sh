@@ -62,6 +62,6 @@ if [ "$TARGET_UNIFIED_DEVICE" == "" ] ; then
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
-echo "ro.aosip.device=$AOSIP_DEVICE"
+echo "ro.zero.device=$ZERO_DEVICE"
 
 echo "# end build properties"
